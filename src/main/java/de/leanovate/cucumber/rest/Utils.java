@@ -1,6 +1,5 @@
 package de.leanovate.cucumber.rest;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.codec.Charsets;
 import org.apache.http.*;
 import org.apache.http.entity.StringEntity;
@@ -10,8 +9,6 @@ import java.io.IOException;
 import java.util.stream.Stream;
 
 public class Utils {
-    public static ObjectMapper mapper = new ObjectMapper();
-
     public static String formatRequest(HttpRequest request) {
         final StringBuilder sb = new StringBuilder();
 
@@ -30,7 +27,7 @@ public class Utils {
 
                     ((HttpEntityEnclosingRequest) request).setEntity(new StringEntity(body, Charsets.UTF_8));
 
-                    sb.append(formatBody(body));
+                    sb.append(JsonHelper.tryFormatJson(body));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -55,7 +52,7 @@ public class Utils {
 
                 EntityUtils.updateEntity(response, new StringEntity(body, Charsets.UTF_8));
 
-                sb.append(formatBody(body));
+                sb.append(JsonHelper.tryFormatJson(body));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -74,19 +71,6 @@ public class Utils {
         }
 
         return String.format("%s: %s\n", name, value);
-    }
-
-    public static String formatBody(String body) {
-        if (body.length() > 0) {
-            try {
-                Object obj = mapper.readTree(body);
-
-                return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj);
-            } catch (Exception e) {
-                return "<<<<<< Non-json entity >>>>>";
-            }
-        }
-        return "<<<< empty body >>>>";
     }
 
     public static String repeatChar(char ch, int count) {
