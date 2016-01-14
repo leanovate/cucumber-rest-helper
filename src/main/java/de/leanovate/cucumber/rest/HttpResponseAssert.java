@@ -18,6 +18,14 @@ public class HttpResponseAssert extends AbstractAssert<HttpResponseAssert, HttpR
         return myself;
     }
 
+    public HttpResponseAssert isClientError() {
+        isNotNull();
+
+        assertThat(actual.getStatusLine().getStatusCode()).isGreaterThanOrEqualTo(400).isLessThan(500);
+
+        return myself;
+    }
+
     public HttpResponseAssert hasStatus(int status) {
         isNotNull();
 
@@ -36,5 +44,13 @@ public class HttpResponseAssert extends AbstractAssert<HttpResponseAssert, HttpR
 
     public HttpResponseAssert isNoContent() {
         return hasStatus(204);
+    }
+
+    public HttpResponseAssert isBadRequest() {
+        return hasStatus(400);
+    }
+
+    public HttpResponseAssert isNotFound() {
+        return hasStatus(404);
     }
 }
