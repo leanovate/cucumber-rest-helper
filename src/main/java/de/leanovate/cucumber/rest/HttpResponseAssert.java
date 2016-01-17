@@ -1,5 +1,6 @@
 package de.leanovate.cucumber.rest;
 
+import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.assertj.core.api.AbstractAssert;
 
@@ -52,5 +53,16 @@ public class HttpResponseAssert extends AbstractAssert<HttpResponseAssert, HttpR
 
     public HttpResponseAssert isNotFound() {
         return hasStatus(404);
+    }
+
+    public HttpResponseAssert hasHeader(String name) {
+        isNotNull();
+
+        Header header = actual.getFirstHeader(name);
+
+        assertThat(header).isNotNull();
+        assertThat(header.getValue()).isNotEmpty();
+
+        return myself;
     }
 }
