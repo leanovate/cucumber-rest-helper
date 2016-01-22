@@ -14,7 +14,7 @@ Take a look in [/examples](/examples) or [Book DB example](https://github.com/le
 <dependency>
     <groupId>de.leanovate.cucumber</groupId>
     <artifactId>rest-helper</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.9</version>
     <scope>test</scope>
 </dependency>
 ```
