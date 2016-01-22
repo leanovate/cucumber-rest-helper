@@ -4,7 +4,7 @@
     <groupId>de.leanovate.cucumber</groupId>
     <artifactId>rest-helper</artifactId>
     <packaging>jar</packaging>
-    <version>0.4-SNAPSHOT</version>
+    <version>0.4</version>
     <description>
         A collection of helper classes for testing REST APIs using cucumber-jvm
     </description>
@@ -29,7 +29,7 @@
         <url>https://github.com/leanovate/cucumber-rest-helper</url>
         <connection>scm:git:https://github.com/leanovate/cucumber-rest-helper.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/leanovate/cucumber-rest-helper.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>rest-helper-0.4</tag>
     </scm>
 
     <developers>
