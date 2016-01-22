@@ -5,6 +5,7 @@
     <artifactId>rest-helper</artifactId>
     <packaging>jar</packaging>
     <version>0.5-SNAPSHOT</version>
+    <name>cucumber-rest-helper</name>
     <description>
         A collection of helper classes for testing REST APIs using cucumber-jvm
     </description>
