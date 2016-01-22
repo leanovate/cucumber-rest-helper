@@ -4,7 +4,7 @@
     <groupId>de.leanovate.cucumber</groupId>
     <artifactId>rest-helper</artifactId>
     <packaging>jar</packaging>
-    <version>0.2-SNAPSHOT</version>
+    <version>0.3-SNAPSHOT</version>
 
     <properties>
         <java.version>1.8</java.version>
